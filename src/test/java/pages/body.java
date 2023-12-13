@@ -1,8 +1,11 @@
 package pages;
 
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.BaseDriver;
+
+import java.util.List;
 
 public class body {
 
@@ -76,7 +79,17 @@ public class body {
 
     //////////////////////Ümit///////////////////////
 
+    @FindBy(xpath="//span[text()=' Outbox ']")
+    public WebElement outbox;
 
+    @FindBy(xpath="(//mat-checkbox//div)[2]")
+    public WebElement checkbox;
+
+    @FindBy(xpath="//span[text()='Move to Trash']")
+    public WebElement moveToTrashButton;
+
+    @FindBy(xpath="//span[text()=' Yes ']")
+    public WebElement ConfirmButton;
 
 
 
