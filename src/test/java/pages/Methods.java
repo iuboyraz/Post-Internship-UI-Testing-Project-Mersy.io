@@ -74,5 +74,13 @@ public class Methods {
     public void backPage(){
         BaseDriver.getDriver().navigate().back();
     }
+    public void displayedAssert(WebElement element) {
+        wait.until(ExpectedConditions.visibilityOf(element));
+        Assert.assertTrue(element.isDisplayed());
+    }
+    public void clickableAssert(WebElement element) {
+        wait.until(ExpectedConditions.elementToBeClickable(element));
+        Assert.assertTrue(element.isEnabled());
+    }
 
 }

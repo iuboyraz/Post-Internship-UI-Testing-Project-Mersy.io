@@ -12,7 +12,7 @@ public class hooks {
     }
 
     @After
-    public void  after()
+   public void  after()
     {
         System.out.println("The Scenario is finished");
         BaseDriver.quitDriver();
