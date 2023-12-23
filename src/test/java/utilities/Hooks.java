@@ -1,17 +1,16 @@
-package stepDefinitions;
+package utilities;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
-import utilities.BaseDriver;
 
-public class hooks {
+public class Hooks {
     @Before
     public void before()
     {
         System.out.println("The Scenario is started");
     }
 
-    @After
+   @After
    public void  after()
     {
         System.out.println("The Scenario is finished");

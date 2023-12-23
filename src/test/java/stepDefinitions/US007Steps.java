@@ -3,14 +3,12 @@ package stepDefinitions;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.apache.http.Header;
-import pages.body;
-import pages.header;
-import utilities.BaseDriver;
+import pages.Body;
+import pages.Header;
 
 public class US007Steps {
-    header hd=new header();
-    body bd=new body();
+    Header hd=new Header();
+    Body bd=new Body();
     @When("The student clicks on the hamburger menu -> messaging menu -> Inbox")
     public void theStudentClicksOnTheHamburgerMenuMessagingMenuInbox() {
         hd.myClick(hd.hamburgerMenu);
@@ -24,6 +22,7 @@ public class US007Steps {
         bd.myClick(bd.ConfirmButton);
         hd.verifyContainsText(hd.successMessage, "success");
 
+
     }
 
     @When("The student clicks on the hamburger menu -> messaging menu -> Trash")
@@ -36,5 +35,15 @@ public class US007Steps {
     @And("The student restore the messages")
     public void theStudentRestoreTheMessages() {
         bd.myClick(bd.checkBoxUs07);
+        bd.myClick(bd.restoreButton);
+        hd.verifyContainsText(hd.successMessage, "success");
+
+    }
+
+    @Then("The student delete the messages")
+    public void theStudentDeleteTheMessages() {
+        bd.myClick(bd.deleteIcon);
+        bd.myClick(bd.submitButton);
+        hd.verifyContainsText(hd.successMessage, "success");
     }
 }

@@ -8,15 +8,15 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import pages.Methods;
-import pages.body;
-import pages.header;
+import pages.Body;
+import pages.Header;
 import utilities.BaseDriver;
 
 import java.time.Duration;
 
-public class US06Steps {
-    header hp = new header();
-    body bd= new body();
+public class US006Steps {
+    Header hp = new Header();
+    Body bp = new Body();
     Methods mt = new Methods();
     public WebDriverWait wait = new WebDriverWait(BaseDriver.getDriver(), Duration.ofSeconds(15));
     @When("the student clicks on the Hamburger Menu")
@@ -33,14 +33,14 @@ public class US06Steps {
     @Then("the student should be directed to the Outbox page")
     public void theStudentShouldBeDirectedToTheOutboxPage() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()=' Outbox ']")));
-        Assert.assertTrue(bd.outbox.getText().toLowerCase().trim().contains("outbox"));
+        Assert.assertTrue(bp.outbox.getText().toLowerCase().trim().contains("outbox"));
     }
 
     @When("the student selects the message clicks the move to trash button and confirms")
     public void theStudentSelectsTheMessageClicksTheMoveToTrashButtonAndConfirms() {
-        bd.checkbox.click();
-        mt.myClick(bd.moveToTrashButton);
-        mt.myClick(bd.ConfirmButton);
+        bp.checkbox.click();
+        mt.myClick(bp.moveToTrashButton);
+        mt.myClick(bp.ConfirmButton);
     }
 
     @Then("a success message should appear confirming the process")

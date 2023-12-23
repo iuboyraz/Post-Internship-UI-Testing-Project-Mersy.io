@@ -12,12 +12,18 @@ import org.testng.Assert;
 import utilities.BaseDriver;
 
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Methods {
 
     public WebDriverWait wait = new WebDriverWait(BaseDriver.getDriver(), Duration.ofSeconds(30));
 
     public JavascriptExecutor javascriptExecutor = (JavascriptExecutor) BaseDriver.getDriver();
+    public  void myClickWithoutScroll(WebElement element){
+        wait.until(ExpectedConditions.elementToBeClickable(element));
+        element.click();
+    }
 
     public  void myClick(WebElement element){
         wait.until(ExpectedConditions.elementToBeClickable(element));
@@ -41,10 +47,12 @@ public class Methods {
         javascriptExecutor.executeScript("arguments[0].scrollIntoView();", element);
     }
 
+
     public void verifyContainsText(WebElement element, String value){
         wait.until(ExpectedConditions.textToBePresentInElement(element, value));
         Assert.assertTrue(element.getText().toLowerCase().contains(value.toLowerCase()));
     }
+
 
     public void myScriptClick(WebElement element){
         scrollToElement(element);
@@ -82,5 +90,13 @@ public class Methods {
         wait.until(ExpectedConditions.elementToBeClickable(element));
         Assert.assertTrue(element.isEnabled());
     }
+    public void verifyMenuItems(List<WebElement> elementList, List<String> stringList){
+        List<String> actualMenuTexts = new ArrayList<>();
+        for (WebElement menuItem : elementList){
+            actualMenuTexts.add(menuItem.getText());
+        }
+        Assert.assertEquals(actualMenuTexts,stringList);
+    }
+
 
 }

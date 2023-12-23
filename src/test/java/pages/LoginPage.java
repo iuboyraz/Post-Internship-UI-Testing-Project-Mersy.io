@@ -3,12 +3,11 @@ package pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.pagefactory.FieldDecorator;
 import utilities.BaseDriver;
 
-public class loginPage extends Methods {
+public class LoginPage extends Methods {
 
-    public loginPage()
+    public LoginPage()
     {
         PageFactory.initElements(BaseDriver.getDriver(), this);
     }
@@ -21,6 +20,9 @@ public class loginPage extends Methods {
     public WebElement loginButton;
     @FindBy(xpath = "((//div[@fxlayout='row'])[3]//span)[1]")
     public WebElement loginVerifyText;
+    @FindBy(xpath = "//div[text()='Invalid username or password']")
+    public WebElement invalidUserNamePassword;
+
 
 
 
